@@ -1,5 +1,4 @@
-import React from "react";
-import { ScrollView, Text } from "react-native";
+import { ScrollView } from "react-native";
 import CategoryCard from "./CategoryCard";
 
 const Categories = () => {

@@ -1,4 +1,4 @@
-import { Text, TouchableOpacity, Image } from "react-native";
+import { Image, Text, TouchableOpacity } from "react-native";
 
 type Props = {
   imgUrl: string;
