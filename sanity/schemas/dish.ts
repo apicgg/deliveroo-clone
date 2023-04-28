@@ -19,7 +19,7 @@ export default defineType({
     }),
     defineField({
       name: 'price',
-      title: 'Price of the dish in GBP',
+      title: 'Price of the dish in INR',
       type: 'number',
     }),
     defineField({
