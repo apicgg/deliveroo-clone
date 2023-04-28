@@ -48,7 +48,7 @@ const HomeScreen = () => {
   // console.log(featuredCategories)
 
   return (
-    <SafeAreaView className="bg-white pt-5">
+    <SafeAreaView style={{ flex: 1 }} className="bg-white pt-5">
       {/* Header */}
       <View className="mx-4 flex-row items-center space-x-2 pb-3">
         <Image
