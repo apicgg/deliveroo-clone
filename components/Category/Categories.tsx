@@ -3,8 +3,14 @@ import { ScrollView } from "react-native";
 import sanityClient, { urlFor } from "../../sanity";
 import CategoryCard from "./CategoryCard";
 
+type Category = {
+  _id: number;
+  image: string;
+  name: string;
+};
+
 const Categories = () => {
-  const [categories, setCategories] = useState([]);
+  const [categories, setCategories] = useState<Category[]>([]);
 
   useEffect(() => {
     sanityClient

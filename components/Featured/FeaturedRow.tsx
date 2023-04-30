@@ -5,13 +5,26 @@ import sanityClient from "../../sanity";
 import RestaurantCard from "../Restaurant/RestaurantCard";
 
 type Props = {
-  id: string;
+  id: number;
   title: string;
   description: string;
 };
 
+type Restaurant = {
+  _id: number;
+  image: string;
+  name: string;
+  rating: number;
+  type: { name: string };
+  address: string;
+  short_description: string;
+  dishes: string[];
+  lat: number;
+  long: number;
+};
+
 const FeaturedRow = ({ id, title, description }: Props) => {
-  const [restaurants, setRestaurants] = useState([]);
+  const [restaurants, setRestaurants] = useState<Restaurant[]>([]);
 
   useEffect(() => {
     sanityClient
