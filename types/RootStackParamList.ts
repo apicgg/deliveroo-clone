@@ -7,10 +7,18 @@ type RootStackParamList = {
     genre: string;
     address: string;
     short_description: string;
-    dishes: string[];
+    dishes: Dish[];
     lat: number;
     long: number;
   };
+};
+
+type Dish = {
+  _id: number;
+  name: string;
+  short_description: string;
+  price: number;
+  image: string;
 };
 
 export default RootStackParamList;
