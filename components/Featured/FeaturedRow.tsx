@@ -1,8 +1,8 @@
-import { View, Text, ScrollView } from "react-native";
+import React, { useEffect, useState } from "react";
+import { ScrollView, Text, View } from "react-native";
 import { ArrowRightIcon } from "react-native-heroicons/outline";
-import RestaurantCard from "../Restaurant/RestaurantCard";
-import { useEffect, useState } from "react";
 import sanityClient from "../../sanity";
+import RestaurantCard from "../Restaurant/RestaurantCard";
 
 type Props = {
   id: string;

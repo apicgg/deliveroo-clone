@@ -1,6 +1,7 @@
-import { View, Text, TouchableOpacity, Image } from "react-native";
-import { StarIcon } from "react-native-heroicons/solid";
+import React from "react";
+import { Image, Text, TouchableOpacity, View } from "react-native";
 import { MapPinIcon } from "react-native-heroicons/outline";
+import { StarIcon } from "react-native-heroicons/solid";
 import { urlFor } from "../../sanity";
 
 type Props = {
