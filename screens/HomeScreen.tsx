@@ -16,10 +16,18 @@ import {
 } from "react-native-heroicons/outline";
 import Categories from "../components/Category/Categories";
 import FeaturedRow from "../components/Featured/FeaturedRow";
-import sanityClient from "../sanity";
+import sanityClient from "../lib/sanity";
+
+type FeaturedCategories = {
+  _id: number;
+  name: string;
+  short_description: string;
+};
 
 const HomeScreen = () => {
-  const [featuredCategories, setFeaturedCategories] = useState([]);
+  const [featuredCategories, setFeaturedCategories] = useState<
+    FeaturedCategories[]
+  >([]);
 
   const navigation = useNavigation();
 

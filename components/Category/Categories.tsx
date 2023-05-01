@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { ScrollView } from "react-native";
-import sanityClient, { urlFor } from "../../sanity";
+import sanityClient, { urlFor } from "../../lib/sanity";
 import CategoryCard from "./CategoryCard";
 
 type Category = {

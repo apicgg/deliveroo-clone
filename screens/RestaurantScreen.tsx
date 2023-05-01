@@ -8,7 +8,7 @@ import {
   MapPinIcon,
   StarIcon,
 } from "react-native-heroicons/solid";
-import { urlFor } from "../sanity";
+import { urlFor } from "../lib/sanity";
 import RootStackParamList from "../types/RootStackParamList";
 import DishRow from "../components/Restaurant/DishRow";
 

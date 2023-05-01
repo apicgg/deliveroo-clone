@@ -1,7 +1,7 @@
 import { View, Text, TouchableOpacity, Image } from "react-native";
 import Currency from "react-currency-formatter";
 import React, { useState } from "react";
-import { urlFor } from "../../sanity";
+import { urlFor } from "../../lib/sanity";
 import { MinusCircleIcon } from "react-native-heroicons/solid";
 import { PlusCircleIcon } from "react-native-heroicons/outline";
 

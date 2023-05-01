@@ -3,8 +3,8 @@ import React from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import { MapPinIcon } from "react-native-heroicons/outline";
 import { StarIcon } from "react-native-heroicons/solid";
-import { urlFor } from "../../sanity";
-import RootStackParamList from "../../types/RootStackParamList";
+import { urlFor } from "../../lib/sanity";
+import RootStackParamList, { Dish } from "../../types/RootStackParamList";
 
 type Props = {
   id: number;
@@ -14,7 +14,7 @@ type Props = {
   genre: string;
   address: string;
   short_description: string;
-  dishes: string[];
+  dishes: Dish[];
   lat: number;
   long: number;
 };

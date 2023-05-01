@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { ScrollView, Text, View } from "react-native";
 import { ArrowRightIcon } from "react-native-heroicons/outline";
-import sanityClient from "../../sanity";
+import sanityClient from "../../lib/sanity";
 import RestaurantCard from "../Restaurant/RestaurantCard";
+import { Dish } from "../../types/RootStackParamList";
 
 type Props = {
   id: number;
@@ -18,7 +19,7 @@ type Restaurant = {
   type: { name: string };
   address: string;
   short_description: string;
-  dishes: string[];
+  dishes: Dish[];
   lat: number;
   long: number;
 };

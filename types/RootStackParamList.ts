@@ -13,7 +13,7 @@ type RootStackParamList = {
   };
 };
 
-type Dish = {
+export type Dish = {
   _id: number;
   name: string;
   short_description: string;
