@@ -23,6 +23,7 @@ type RootStackParamList = {
         image: string;
       }
     | undefined;
+  PrepareOrder: undefined;
 };
 
 export type Dish = {

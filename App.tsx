@@ -6,6 +6,7 @@ import { Provider } from "react-redux";
 import { store } from "./app/store";
 import BasketScreen from "./screens/BasketScreen";
 import HomeScreen from "./screens/HomeScreen";
+import PrepareOrderScreen from "./screens/PrepareOrderScreen";
 import RestaurantScreen from "./screens/RestaurantScreen";
 import RootStackParamList from "./types/RootStackParamList";
 
@@ -23,6 +24,14 @@ export default function App() {
             component={BasketScreen}
             options={{
               presentation: "modal",
+              headerShown: false,
+            }}
+          />
+          <Stack.Screen
+            name="PrepareOrder"
+            component={PrepareOrderScreen}
+            options={{
+              presentation: "fullScreenModal",
               headerShown: false,
             }}
           />
