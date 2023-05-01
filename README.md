@@ -1,6 +1,6 @@
 # Deliveroo-Clone
 
-This is a React Native app created using the Expo framework. It is a clone of the popular food delivery service, Deliveroo.
+This is a React Native app created using the Expo framework. It is a clone of the popular food delivery service, Deliveroo. Check out the youtube [video](https://www.youtube.com/watch?v=taPz40VmyzQ&t=11828s).
 
 ## Features
 
@@ -29,16 +29,7 @@ npm start
 
 ## Technologies Used
 
-- React Native
-- Expo
-- TailwindCSS with Nativewind
-
-## Contributing
-
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
-
-## License
-
-This project is licensed under the MIT License.
+- [React Native](https://reactnative.dev/)
+- [Expo](https://expo.dev/)
+- [Nativewind](https://www.nativewind.dev/)
+- [React Native Navigation](https://reactnavigation.org/)
