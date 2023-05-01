@@ -1,11 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
-import type { PayloadAction } from "@reduxjs/toolkit";
 
-export interface CounterState {
-  items: number[];
+export type BasketItem = {
+  id: number;
+  name: string;
+  description: string;
+  price: number;
+  image: string;
+};
+
+export interface BasketState {
+  items: BasketItem[];
 }
 
-const initialState: CounterState = {
+const initialState: BasketState = {
   items: [],
 };
 
@@ -13,23 +20,36 @@ export const basketSlice = createSlice({
   name: "basket",
   initialState,
   reducers: {
-    increment: (state) => {
-      // Redux Toolkit allows us to write "mutating" logic in reducers. It
-      // doesn't actually mutate the state because it uses the Immer library,
-      // which detects changes to a "draft state" and produces a brand new
-      // immutable state based off those changes
-      state.items += 1;
+    addToBasket: (state, action) => {
+      state.items = [...state.items, action.payload];
     },
-    decrement: (state) => {
-      state.items -= 1;
-    },
-    incrementByAmount: (state, action: PayloadAction<number>) => {
-      state.items += action.payload;
+    removeFromBasket: (state, action) => {
+      const index = state.items.findIndex(
+        (item) => item.id === action.payload.id
+      );
+
+      const newBasket = [...state.items];
+
+      if (index >= 0) {
+        newBasket.splice(index, 1);
+      } else {
+        console.warn(
+          `Can't remove the product (id: ${action.payload.id}) as it's not in basket`
+        );
+      }
+      state.items = newBasket;
     },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = basketSlice.actions;
+export const { addToBasket, removeFromBasket } = basketSlice.actions;
+
+// ! TODO: add types
+export const selectBasketItems = (state: any) => state.basket.items;
+
+export const selectBasketItemsWithId = (state: any, id: number) => {
+  return state.basket.items.filter((item: BasketItem) => item.id === id);
+};
 
 export default basketSlice.reducer;
