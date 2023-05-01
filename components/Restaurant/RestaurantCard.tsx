@@ -1,10 +1,10 @@
-import { NavigationProp, useNavigation } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import { MapPinIcon } from "react-native-heroicons/outline";
 import { StarIcon } from "react-native-heroicons/solid";
 import { urlFor } from "../../lib/sanity";
-import RootStackParamList, { Dish } from "../../types/RootStackParamList";
+import { Dish } from "../../types/RootStackParamList";
 
 type Props = {
   id: number;
@@ -19,11 +19,6 @@ type Props = {
   long: number;
 };
 
-type RestaurantScreenNavigationProp = NavigationProp<
-  RootStackParamList,
-  "Restaurant"
->;
-
 const RestaurantCard = ({
   id,
   imgUrl,
@@ -36,26 +31,23 @@ const RestaurantCard = ({
   long,
   lat,
 }: Props) => {
-  const navigation = useNavigation<RestaurantScreenNavigationProp>();
+  const navigation = useNavigation();
 
   return (
     <TouchableOpacity
       className="mr-3 bg-white shadow"
       onPress={() => {
-        navigation.navigate({
-          key: "Restaurant",
-          params: {
-            id,
-            imgUrl,
-            title,
-            rating,
-            genre,
-            address,
-            short_description,
-            dishes,
-            long,
-            lat,
-          },
+        navigation.navigate("Restaurant", {
+          id,
+          imgUrl,
+          title,
+          rating,
+          genre,
+          address,
+          short_description,
+          dishes,
+          long,
+          lat,
         });
       }}
     >

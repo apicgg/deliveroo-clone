@@ -1,4 +1,7 @@
+/* eslint-disable @typescript-eslint/no-empty-interface */
+/* eslint-disable @typescript-eslint/no-namespace */
 type RootStackParamList = {
+  Home: undefined;
   Restaurant: {
     id: number;
     imgUrl: string;
@@ -11,13 +14,15 @@ type RootStackParamList = {
     lat: number;
     long: number;
   };
-  Basket: {
-    id: number;
-    name: string;
-    description: string;
-    price: number;
-    image: string;
-  };
+  Basket:
+    | {
+        id: number;
+        name: string;
+        description: string;
+        price: number;
+        image: string;
+      }
+    | undefined;
 };
 
 export type Dish = {
@@ -27,5 +32,11 @@ export type Dish = {
   price: number;
   image: string;
 };
+
+declare global {
+  namespace ReactNavigation {
+    interface RootParamList extends RootStackParamList {}
+  }
+}
 
 export default RootStackParamList;

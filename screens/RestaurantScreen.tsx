@@ -9,7 +9,7 @@ import {
   StarIcon,
 } from "react-native-heroicons/solid";
 import { useDispatch } from "react-redux";
-import BasketIcon from "../components/Restaurant/BasketModal";
+import BasketModal from "../components/Restaurant/BasketModal";
 import DishRow from "../components/Restaurant/DishRow";
 import { setRestaurant } from "../features/restaurantSlice";
 import { urlFor } from "../lib/sanity";
@@ -62,7 +62,7 @@ const RestaurantScreen = () => {
 
   return (
     <>
-      <BasketIcon />
+      <BasketModal />
 
       <ScrollView>
         <View className="relative">
