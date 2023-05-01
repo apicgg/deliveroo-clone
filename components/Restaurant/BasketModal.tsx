@@ -21,7 +21,11 @@ const BasketIcon = () => {
   return (
     <View className="absolute bottom-10 z-50 w-full">
       <TouchableOpacity
-        onPress={() => navigation.navigate("Basket")}
+        onPress={() =>
+          navigation.navigate({
+            key: "Basket",
+          })
+        }
         className="mx-5 flex-row items-center rounded-lg bg-[#00ccbb] p-4"
       >
         <Text className="bg-[#01a296] px-2 py-1 text-lg font-extrabold text-white">
