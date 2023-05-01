@@ -1,26 +1,31 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { Dish } from "../types/RootStackParamList";
 
 export type RestaurantItem = {
-  id: number | null;
-  imgUrl: string | null;
-  title: string | null;
-  rating: number | null;
-  genre: string | null;
-  address: string | null;
-  short_description: string | null;
-  dishes: string | null;
+  id: number;
+  imgUrl: string;
+  title: string;
+  rating: number;
+  genre: string;
+  address: string;
+  short_description: string;
+  dishes: Dish[];
 };
 
-const initialState = {
+export type RestaurantState = {
+  restaurant: RestaurantItem;
+};
+
+const initialState: RestaurantState = {
   restaurant: {
-    id: null,
-    imgUrl: null,
-    title: null,
-    rating: null,
-    genre: null,
-    address: null,
-    short_description: null,
-    dishes: null,
+    id: 0,
+    imgUrl: "",
+    title: "",
+    rating: 0,
+    genre: "",
+    address: "",
+    short_description: "",
+    dishes: [],
   },
 };
 
@@ -37,7 +42,7 @@ export const restaurantSlice = createSlice({
 // Action creators are generated for each case reducer function
 export const { setRestaurant } = restaurantSlice.actions;
 
-// ! TODO: add types instead of any
-export const selectRestaurant = (state: any) => state.restaurant.restaurant;
+export const selectRestaurant = (state: { restaurant: RestaurantState }) =>
+  state.restaurant.restaurant;
 
 export default restaurantSlice.reducer;

@@ -8,9 +8,9 @@ export type BasketItem = {
   image: string;
 };
 
-export interface BasketState {
+export type BasketState = {
   items: BasketItem[];
-}
+};
 
 const initialState: BasketState = {
   items: [],
@@ -45,14 +45,17 @@ export const basketSlice = createSlice({
 // Action creators are generated for each case reducer function
 export const { addToBasket, removeFromBasket } = basketSlice.actions;
 
-// ! TODO: add types instead of any
-export const selectBasketItems = (state: any) => state.basket.items;
+export const selectBasketItems = (state: { basket: BasketState }) =>
+  state.basket.items;
 
-export const selectBasketItemsWithId = (state: any, id: number) => {
+export const selectBasketItemsWithId = (
+  state: { basket: BasketState },
+  id: number
+) => {
   return state.basket.items.filter((item: BasketItem) => item.id === id);
 };
 
-export const selectBasketTotal = (state: any) => {
+export const selectBasketTotal = (state: { basket: BasketState }) => {
   return state.basket.items.reduce(
     (total: number, item: BasketItem) => (total += item.price),
     0

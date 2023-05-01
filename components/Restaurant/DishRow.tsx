@@ -4,6 +4,7 @@ import { Image, Text, TouchableOpacity, View } from "react-native";
 import { PlusCircleIcon } from "react-native-heroicons/outline";
 import { MinusCircleIcon } from "react-native-heroicons/solid";
 import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../app/store";
 import {
   addToBasket,
   removeFromBasket,
@@ -22,7 +23,7 @@ type Props = {
 const DishRow = ({ id, name, description, price, image }: Props) => {
   const [isPressed, setIsPressed] = useState(false);
   // const basketItems = useSelector(selectBasketItems);
-  const basketItems = useSelector((state) =>
+  const basketItems = useSelector((state: RootState) =>
     selectBasketItemsWithId(state, id)
   );
   const dispatch = useDispatch();
