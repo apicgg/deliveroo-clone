@@ -11,6 +11,13 @@ type RootStackParamList = {
     lat: number;
     long: number;
   };
+  Basket: {
+    id: number;
+    name: string;
+    description: string;
+    price: number;
+    image: string;
+  };
 };
 
 export type Dish = {

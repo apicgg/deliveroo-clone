@@ -8,8 +8,10 @@ import {
   MapPinIcon,
   StarIcon,
 } from "react-native-heroicons/solid";
+import { useDispatch } from "react-redux";
 import BasketIcon from "../components/Restaurant/BasketModal";
 import DishRow from "../components/Restaurant/DishRow";
+import { setRestaurant } from "../features/restaurantSlice";
 import { urlFor } from "../lib/sanity";
 import RootStackParamList from "../types/RootStackParamList";
 
@@ -17,6 +19,7 @@ type RestaurantScreenRouteProp = RouteProp<RootStackParamList, "Restaurant">;
 
 const RestaurantScreen = () => {
   const navigation = useNavigation();
+  const dispatch = useDispatch();
 
   const {
     params: {
@@ -39,6 +42,23 @@ const RestaurantScreen = () => {
       headerShown: false,
     });
   });
+
+  useEffect(() => {
+    dispatch(
+      setRestaurant({
+        id,
+        imgUrl,
+        title,
+        rating,
+        genre,
+        address,
+        short_description,
+        dishes,
+        long,
+        lat,
+      })
+    );
+  }, [dispatch]);
 
   return (
     <>
