@@ -12,6 +12,7 @@ import {
 import { XCircleIcon } from "react-native-heroicons/solid";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  BasketItem,
   removeFromBasket,
   selectBasketItems,
   selectBasketTotal,
@@ -20,7 +21,9 @@ import { RestaurantItem, selectRestaurant } from "../features/restaurantSlice";
 import { urlFor } from "../lib/sanity";
 
 const BasketScreen = () => {
-  const [groupedItemsInBasket, setGroupedItemsInBasket] = useState([]);
+  const [groupedItemsInBasket, setGroupedItemsInBasket] = useState<{
+    [key: string]: BasketItem[];
+  }>({});
   const navigation = useNavigation();
   const dispatch = useDispatch();
   const restaurant: RestaurantItem = useSelector(selectRestaurant);
@@ -28,10 +31,13 @@ const BasketScreen = () => {
   const basketTotal = useSelector(selectBasketTotal);
 
   useEffect(() => {
-    const groupedBasketItems = basketItems.reduce((results: any, item: any) => {
-      (results[item.id] = results[item.id] || []).push(item);
-      return results;
-    }, {});
+    const groupedBasketItems = basketItems.reduce(
+      (results: { [key: string]: BasketItem[] }, item: BasketItem) => {
+        (results[item.id] = results[item.id] || []).push(item);
+        return results;
+      },
+      {}
+    );
     setGroupedItemsInBasket(groupedBasketItems);
   }, [basketItems]);
 
