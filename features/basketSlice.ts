@@ -45,11 +45,18 @@ export const basketSlice = createSlice({
 // Action creators are generated for each case reducer function
 export const { addToBasket, removeFromBasket } = basketSlice.actions;
 
-// ! TODO: add types
+// ! TODO: add types instead of any
 export const selectBasketItems = (state: any) => state.basket.items;
 
 export const selectBasketItemsWithId = (state: any, id: number) => {
   return state.basket.items.filter((item: BasketItem) => item.id === id);
+};
+
+export const selectBasketTotal = (state: any) => {
+  return state.basket.items.reduce(
+    (total: number, item: BasketItem) => (total += item.price),
+    0
+  );
 };
 
 export default basketSlice.reducer;
