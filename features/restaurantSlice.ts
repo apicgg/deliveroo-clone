@@ -10,6 +10,8 @@ export type RestaurantItem = {
   address: string;
   short_description: string;
   dishes: Dish[];
+  lat: number;
+  long: number;
 };
 
 export type RestaurantState = {
@@ -26,6 +28,8 @@ const initialState: RestaurantState = {
     address: "",
     short_description: "",
     dishes: [],
+    lat: 0,
+    long: 0,
   },
 };
 

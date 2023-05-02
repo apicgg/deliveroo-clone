@@ -5,6 +5,7 @@ import "react-native-url-polyfill/auto";
 import { Provider } from "react-redux";
 import { store } from "./app/store";
 import BasketScreen from "./screens/BasketScreen";
+import DeliveryScreen from "./screens/DeliveryScreen";
 import HomeScreen from "./screens/HomeScreen";
 import PrepareOrderScreen from "./screens/PrepareOrderScreen";
 import RestaurantScreen from "./screens/RestaurantScreen";
@@ -30,6 +31,14 @@ export default function App() {
           <Stack.Screen
             name="PrepareOrder"
             component={PrepareOrderScreen}
+            options={{
+              presentation: "fullScreenModal",
+              headerShown: false,
+            }}
+          />
+          <Stack.Screen
+            name="Delivery"
+            component={DeliveryScreen}
             options={{
               presentation: "fullScreenModal",
               headerShown: false,

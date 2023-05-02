@@ -24,6 +24,7 @@ type RootStackParamList = {
       }
     | undefined;
   PrepareOrder: undefined;
+  Delivery: undefined;
 };
 
 export type Dish = {
