@@ -68,6 +68,18 @@ const DeliveryScreen = () => {
           pinColor="#00ccbb"
         />
       </MapView>
+
+      <SafeAreaView className="h-28 flex-row items-center space-x-5 bg-white">
+        <Image
+          source={{ uri: "https://links.papareact.com/wru" }}
+          className="ml-5 h-12 w-12 rounded-full bg-gray-300 p-4"
+        />
+        <View className="flex-1">
+          <Text className="text-lg">Rider Name</Text>
+          <Text className="text-gray-400">Your Rider</Text>
+        </View>
+        <Text className="mr-5 text-lg font-bold text-[#00ccbb]">Call</Text>
+      </SafeAreaView>
     </View>
   );
 };
